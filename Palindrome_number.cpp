@@ -41,3 +41,17 @@ public:
         }
     }
 };
+//Better Solution
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        int newx = 0,tempx = x;
+        while(x>0)
+        {
+            int t = x%10;
+            if(newx<INT_MAX/10 && newx>INT_MIN/10){
+            newx = newx*10 + t;
+            }x = x/10;
+        }if(tempx == newx){return true;}return false;
+    }
+};
