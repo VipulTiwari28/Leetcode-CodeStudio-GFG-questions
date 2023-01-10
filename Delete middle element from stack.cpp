@@ -37,3 +37,19 @@ void deleteMiddle(stack<int>&inputStack, int N){
         }
     }   
 }
+//2nd better Approach
+#include <bits/stdc++.h>
+void solve(stack<int>&inputStack, int index,int size)
+{
+    if(index == size/2){
+        inputStack.pop();
+        return;
+    }
+    int t = inputStack.top();
+    inputStack.pop();
+    solve(inputStack,index+1,size);
+    inputStack.push(t);
+}
+void deleteMiddle(stack<int>&inputStack, int N){
+       solve(inputStack,0,N);
+}
